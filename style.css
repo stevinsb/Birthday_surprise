@@ -1,0 +1,173 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #FF9A8B, #FF6A88, #FF99AC);
+    color: white;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    position: relative;
+}
+
+/* Page styles */
+.page {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.page.active {
+    display: flex;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Celebration styles */
+h1 {
+    font-size: 3rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.center-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Hanging bulbs */
+#bulbs {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top: 10%;
+    width: 100%;
+}
+
+.bulb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    animation: swing 3s infinite ease-in-out;
+}
+
+.bulb:nth-child(even) {
+    background-color: lightblue;
+}
+
+.bulb:nth-child(odd) {
+    background-color: gold;
+}
+
+@keyframes swing {
+    0%, 100% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+}
+
+/* Balloons */
+.balloons {
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    height: 80%;
+    overflow: hidden;
+}
+
+.balloon {
+    position: absolute;
+    bottom: -100px;
+    width: 60px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #FF5733;  /* Default color */
+    animation: floatBalloon 6s infinite ease-in-out;
+}
+
+/* Balloon colors and positions */
+#balloons .balloon:nth-child(1) { left: 5%; background-color: lightblue; animation-delay: 0s; }
+#balloons .balloon:nth-child(2) { left: 15%; background-color: lightgreen; animation-delay: 1s; }
+#balloons .balloon:nth-child(3) { left: 25%; background-color: lightcoral; animation-delay: 2s; }
+#balloons .balloon:nth-child(4) { left: 35%; background-color: yellow; animation-delay: 3s; }
+#balloons .balloon:nth-child(5) { left: 45%; background-color: pink; animation-delay: 4s; }
+#balloons .balloon:nth-child(6) { left: 55%; background-color: gold; animation-delay: 5s; }
+#balloons .balloon:nth-child(7) { left: 65%; background-color: turquoise; animation-delay: 6s; }
+#balloons .balloon:nth-child(8) { left: 75%; background-color: lavender; animation-delay: 7s; }
+#balloons .balloon:nth-child(9) { left: 85%; background-color: violet; animation-delay: 8s; }
+#balloons .balloon:nth-child(10) { left: 95%; background-color: peach; animation-delay: 9s; }
+
+@keyframes floatBalloon {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-120vh); }
+}
+
+/* Fireworks (Crackers) */
+#fireworkContainer .firecracker {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: yellow;
+    border-radius: 50%;
+    animation: fireworkEffect 1s ease-out;
+    z-index: 100;
+}
+
+@keyframes fireworkEffect {
+    0% { transform: scale(0.5) rotate(0deg); opacity: 1; }
+    100% { transform: scale(3) rotate(720deg); opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Confetti */
+#confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #FF5733;
+    opacity: 0.8;
+    animation: fall 2s infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100vh); }
+}
+
+/* Countdown */
+#countdown {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
